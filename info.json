@@ -1,0 +1,11 @@
+{
+    "project": [
+        {
+            "author": "Michael Peters",
+            "projectName": "dotfiles",
+            "version": "0.1",
+            "description": "my personal dotfiles",
+            "githubLink": "https://github.com/michaelpeterswa/dotfiles"
+        }
+    ]
+}
