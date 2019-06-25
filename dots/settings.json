@@ -1,0 +1,12 @@
+{
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code",
+    "python.pythonPath": "/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.prospectorEnabled": false,
+    "python.linting.mypyEnabled": false,
+    "terminal.integrated.rendererType": "dom",
+    "workbench.colorTheme": "Shades of Purple",
+    "git.autofetch": true
+}
