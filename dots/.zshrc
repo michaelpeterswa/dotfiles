@@ -1,7 +1,7 @@
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 #                               _ _       _                 _                 #
-#     zsh config 2019          | (_)     ( )               | |                #
+#     zsh config 2020          | (_)     ( )               | |                #
 #   _ ____      ___ __ __ _  __| |_  ___ |/ ___     _______| |__  _ __ ___    #
 #  | '_ \ \ /\ / / '__/ _` |/ _` | |/ _ \  / __|   |_  / __| '_ \| '__/ __|   #
 #  | | | \ V  V /| | | (_| | (_| | | (_) | \__ \  _ / /\__ \ | | | | | (__    #
@@ -9,24 +9,17 @@
 #                                                                             #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #                                                                                
 
+# integration between omz (theming) and antibody (plugin handler)
+
 # add custom binary folder to path (script storage)
-export PATH="$PATH:$HOME/custombin"
-
-# Linux antigen file
-source ~/antigen.zsh
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+export PATH="$PATH:$HOME/code/scripts:/usr/share/code/bin"
+export ZSH=$HOME/.oh-my-zsh
 
 ########
 #THEMES#
 ########
 
-#antigen theme cloud
-antigen theme miloshadzic
-
-# Load the theme
-antigen apply
+ZSH_THEME=lambda-gitster
 
 ########
 #TWEAKS#
@@ -39,11 +32,12 @@ DISABLE_UPDATE_PROMPT="true"
 #PLUGINS#
 #########
 
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
 source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+#handle antibody plugin loader
+source <(antibody init)
+
+antibody bundle < ~/.zshplugins
 
 #########
 #ALIASES#
@@ -55,8 +49,10 @@ alias ohmyzsh="nano ~/.oh-my-zsh"
 
 autoload -Uz promptinit; promptinit
 
+
 ################
 #STARTUP SCRIPT#
 ################
 
-openshell | lolcat
+#openshell | lolcat
+curl -s "https://cascades.dev/api" | jq -r '.quote' | lolcat -f
