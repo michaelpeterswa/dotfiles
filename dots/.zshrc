@@ -46,7 +46,10 @@ antibody bundle < ~/.zshplugins
 # Example aliases
 alias zshconfig="nano ~/.zshrc"
 alias ohmyzsh="nano ~/.oh-my-zsh"
+alias bat="batcat"
 alias cat="bat"
+alias python="python3"
+alias lsa="ls -a"
 
 autoload -Uz promptinit; promptinit
 
@@ -56,4 +59,4 @@ autoload -Uz promptinit; promptinit
 ################
 
 #openshell | lolcat
-curl -s "https://cascades.dev/api" | jq -r '.quote'
+curl -s "https://cascades.dev/api" | jq -r '.quote' | lolcat
